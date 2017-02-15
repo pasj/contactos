@@ -1,0 +1,149 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+        <h:form id="formSalones" style="border: none">
+            <p:growl id="messages" showDetail="true"/>
+            <div style="width: 40% !important; margin: 0 auto;">
+                <p:panel header="SALAS POR OFICINA" style="text-align: center" styleClass="panelSinBordes">
+                    <div style="text-align: center; margin-bottom: 12px;">
+                        <p:commandButton icon="btnAgregarDetalle"
+                                         value="Agregar"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         process="@this"
+                                         styleClass="separador-botones"
+                                         actionListener="#{salonesBackBean.nuevoSalon}"
+                                         update=":formSalones"/>
+
+                        <p:commandButton icon="btnEditar"
+                                         value="Editar"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         resetValues="true"
+                                         styleClass="separador-botones"
+                                         update=":formSalones"
+                                         disabled="#{salonesBackBean.selectRow == null}"
+                                         action="#{salonesBackBean.editarSalon}"/>
+
+                        <p:commandButton icon="btnCambiarEstado"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         disabled="#{salonesBackBean.selectRow == null}"
+                                         update=":formConfirmar"
+                                         value="Cambiar Estado"
+                                         oncomplete="PF('confirmar').show();"/>
+
+
+                    </div>
+                    <p:dataTable id="tblSalon" styleClass="panelSinBordes"
+                                 widgetVar="tblSalon"
+                                 var="reg"
+                                 emptyMessage="No hay paiss registradas"
+                                 value="#{salonesBackBean.listaSalones}"
+                                 paginatorPosition="top"
+                                 selectionMode="single"
+                                 scrollable="true"
+                                 selection="#{salonesBackBean.selectRow}"
+                                 rowKey="#{reg.id}"
+                                 paginator="true"
+                                 rows="12"
+                                 pageLinks="3">
+
+                        <p:ajax event="rowSelect"
+                                update=":formSalones"/>
+                        <p:ajax event="rowDblselect" resetValues="true"
+                                listener="#{salonesBackBean.editarSalon}"
+                                update=":formAct"/>
+
+                        <p:column headerText="Oficina" style="text-align: left !important;" sortBy="#{reg.oficinaIdPorId.oficina}">
+                            <h:outputText value="#{reg.oficinaIdPorId.oficina}"/>
+                        </p:column>
+                        <p:column headerText="Sala" style="text-align: left !important;" sortBy="#{reg.nombre}">
+                            <h:outputText value="#{reg.nombre}"/>
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: left !important; width: 80px;" sortBy="#{reg.estado}">
+                            <h:outputText value="#{reg.estado == 0 ? 'Activo' : 'Inactivo'}"/>
+                        </p:column>
+                    </p:dataTable>
+
+                </p:panel>
+            </div>
+        </h:form>
+        <p:dialog id="vSalon" widgetVar="vSalon" header="#{salonesBackBean.tituloModal}"
+                  showEffect="clip" hideEffect="clip"
+                  height="110" width="570" modal="true" resizable="false">
+
+            <h:form id="formAct">
+                <p:focus for="sSalon"/>
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+                    <p:outputLabel value="Oficina"/>
+                    <p:selectOneMenu value="#{salonesBackBean.iOficina}">
+
+                        <f:selectItems var="ofi" value="#{salonesBackBean.listaOficinas}"
+                                       itemLabel="#{ofi.oficina}" itemValue="#{ofi.id}"/>
+
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Salón : " for="sSalon"/>
+                    <p:inputText id="sSalon"  value="#{salonesBackBean.txtSalon}" required="true"
+                                 style="width: 90% !important;"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnGuardar"
+                                     value="Guardar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{salonesBackBean.guardarSalon}"
+                                     update=":formSalones"/>
+                    <p:commandButton id="btnCerrar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":formSalones"
+                                     oncomplete="PF('vSalon').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+        <p:dialog id="confirmar" widgetVar="confirmar" header="Confirmar"
+                  showEffect="clip" hideEffect="clip"
+                  height="80" width="370" modal="true" resizable="false">
+
+            <h:form id="formConfirmar">
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+
+                    <p:outputLabel value="#{salonesBackBean.selectRow.estado == 0 ? 'Esta seguro dar de baja a salón' : 'Esta seguro de activar salón'} #{salonesBackBean.selectRow.nombre}?"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnGuardar"
+                                     value="Guardar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{salonesBackBean.darDeBaja}"
+                                     update=":formSalones"/>
+                    <p:commandButton id="btnCancelar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":formSalones"
+                                     oncomplete="PF('confirmar').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="estilo.css" />
+</h:head>
+<h:body>
+    <h:form id="formCumple" style="border: none" enctype="multipart/form-data">
+        <p:panelGrid columns="2" styleClass="panelSinBordes" columnClasses="width10, width90"
+                     style="width: 100%; text-align: left;">
+            <p:graphicImage library="images" name="logo.png" width="280" height="139"/>
+            <p:outputLabel value="Control de Contactos"
+                           style="color:#044128; font-size:72px; font-weight: bold; text-align: left; "/>
+        </p:panelGrid>
+        <p:menubar style="font-size: 12px !important;" styleClass="centeredMenuBar">
+
+            <p:submenu label="Editar Contacto" icon="ui-icon-document">
+                <p:menuitem value="Contactos Activos" url="/contactosactivos.xhtml"
+                            title="Agregar/Actualizar contactos por oficina"/>
+                <p:menuitem value="Contactos Inactivos" url="/contactosinactivos.xhtml"
+                            title="Ver/Activar contactos inactivos"/>
+                <p:menuitem value="Cumpleañeros" url="/contactocumple.xhtml"
+                            title="Ver/Enviar correo a contactos cumpleañeros"/>
+            </p:submenu>
+            <p:submenu label="Agenda Reuniones" icon="ui-icon-document">
+                <p:menuitem value="Agenda Reuniones" url="/agendareuniones.xhtml"
+                            title="Actualizar agenda de reuniones por oficina"/>
+                <p:menuitem value="Control de Salas" url="/agendasalas.xhtml"
+                            title="Actualizar agemda de salas por oficinas"/>
+            </p:submenu>
+            <p:submenu label="Correos" icon="ui-icon-document">
+                <p:menuitem value="Enviar Correo" url="correos.xhtml" title="Ver/Enviar correos"/>
+            </p:submenu>
+            <p:submenu label="Reportes" icon="ui-icon-document">
+                <p:menuitem value="Contactos" url="/web/facturas.xhtml"/>
+            </p:submenu>
+            <p:submenu label="Clasificadores" icon="ui-icon-contact">
+                <p:menuitem value="Región" url="/regiones.xhtml" title="Agregar/Actualizar regiones geograficas"/>
+                <p:menuitem value="Paises" url="/paises.xhtml" title="Agregar/Actualizar paises"/>
+                <p:menuitem value="Estado/Departamento" url="/estadosdpto.xhtml"
+                            title="Agregar/Actualizar Estado/Departamento por país"/>
+                <p:menuitem value="Tipo Contacto" url="/tipocontacto.xhtml"
+                            title="Agregar/Acttualizar Tipo de Contacto"/>
+                <p:menuitem value="Grupo Contactos" url="/grupocontacto.xhtml"
+                            title="Agregar/Actualizar grupos de contactos para envio de correos"/>
+                <p:menuitem value="Oficinas" url="/oficinas.xhtml" title="Agregar/Actualizar Oficinas"/>
+                <p:menuitem value="Salas por Oficina" url="/salones.xhtml"
+                            title="Agregar/Actualizar Salas de Reunión por Oficina"/>
+                <p:menuitem value="Usuarios" url="/usuarios.xhtml" title="Agregar/Actualizar usuarios del sistema"/>
+            </p:submenu>
+            <f:facet name="options">
+                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"
+                                 style="margin-left: 30px !important;"/>
+            </f:facet>
+        </p:menubar>
+        <div style="width: 50% !important; margin: 0 auto;">
+            <p:panel id="panelCorreo" header="Cumpleañeros del Día"
+                     style="margin-bottom: 12px; background: white; border: none !important; text-align: center;">
+                <div style="text-align: center; margin-bottom: 12px;">
+                    <p:commandButton icon="btnMail" id="bEnviarCorreo"
+                                     value="Enviar Correo"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{enviarCorreoCumpleBackBean.sendMail}"
+                    />
+                </div>
+                <p:panelGrid columns="2" columnClasses="width10, width90" styleClass="panelSinBordes">
+                    <p:outputLabel for="para" value="Para : "/>
+                    <p:inputText id="para" value="#{enviarCorreoCumpleBackBean.txtPara}"
+                                 style="text-align: left !important; width: 95% !important;"/>
+                    <p:outputLabel for="asunto" value="Asunto:"/>
+                    <p:inputText id="asunto" value="#{enviarCorreoCumpleBackBean.txtAsunto}"
+                                 style="text-align: left !important; width: 95% !important;"/>
+                </p:panelGrid>
+                <p:fileUpload mode="advanced" fileUploadListener="#{enviarCorreoCumpleBackBean.handleFileUpload}"
+                              update="imagenup, editmail" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                              value="#{enviarCorreoCumpleBackBean.file}"
+                              cancelLabel="Cancelar" label="Cargar"/>
+                <p:messages id="imagenup"/>
+                <p:commandButton value="Upload" action="#{enviarCorreoCumpleBackBean.upload}" ajax="false"/>
+                <p:panel>
+
+                    <p:editor id="editmail" widgetVar="editmail" value="#{enviarCorreoCumpleBackBean.txtContenido}"
+                              height="300"
+                              style="margin-bottom:10px"
+                              controls="bold italic underline | font size style color highlight | bullets numbering | alignleft center alignright justify | undo redo | rule image link unlink | copy cut paste pastetext | print | outdent indent | removeformat"/>
+
+                </p:panel>
+            </p:panel>
+        </div>
+    </h:form>
+</h:body>
+</html>

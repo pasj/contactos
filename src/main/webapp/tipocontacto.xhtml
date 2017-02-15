@@ -1,0 +1,156 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+        <h:form id="formTipo" style="border: none">
+            <p:growl id="messages" showDetail="true"/>
+            <div style="width: 40% !important; margin: 0 auto;">
+                <p:panel header="TIPOS DE CONTACTOS" style="text-align: center" styleClass="panelSinBordes">
+                    <p:panel styleClass="center panelSinBordes" style="display: block; border: hidden">
+                        <p:remoteCommand name="listarLazy"
+                                         update=":formTipo:tblTipoContacto"
+                                         actionListener="#{tipoContactoBackBean.obtenerTipoContacto}"/>
+
+                        <p:inputText value="#{tipoContactoBackBean.txtBuscar}"
+                                     placeholder="Digite Región a Buscar"
+                                     onkeypress="if (event.keyCode == 13) {listarLazy(); return false;}"
+                                     style="margin-top: 15px; margin-bottom: 15px;"/>
+                    </p:panel>
+                    <div style="text-align: center; margin-bottom: 12px;">
+                        <p:commandButton icon="btnAgregarDetalle"
+                                         value="Agregar"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         process="@this"
+                                         styleClass="separador-botones"
+                                         actionListener="#{tipoContactoBackBean.nuevoTipoContacto}"
+                                         update=":formTipo"/>
+
+                        <p:commandButton icon="btnEditar"
+                                         value="Editar"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         resetValues="true"
+                                         styleClass="separador-botones"
+                                         update=":formTipo"
+                                         disabled="#{tipoContactoBackBean.selectRow == null}"
+                                         action="#{tipoContactoBackBean.editarTipoContacto}"/>
+
+                        <p:commandButton icon="btnCambiarEstado"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         disabled="#{tipoContactoBackBean.selectRow == null}"
+                                         update=":formConfirmar"
+                                         value="Cambiar Estado"
+                                         oncomplete="PF('confirmar').show();"/>
+
+                        <p:commandButton id="btnBuscar"
+                                         icon="btnBuscar"
+                                         value="Buscar"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         styleClass="separador-botones"
+                                         action="#{tipoContactoBackBean.obtenerTipoContacto}"
+                                         update=":formTipo:tblTipoContacto"/>
+
+                    </div>
+                    <p:dataTable id="tblTipoContacto" styleClass="panelSinBordes"
+                                 widgetVar="tblTipoContacto"
+                                 var="tip"
+                                 emptyMessage="No hay paiss registradas"
+                                 value="#{tipoContactoBackBean.listTipoContacto}"
+                                 paginatorPosition="top"
+                                 selectionMode="single"
+                                 scrollable="true"
+                                 selection="#{tipoContactoBackBean.selectRow}"
+                                 rowKey="#{tip.id}"
+                                 paginator="true"
+                                 rows="12"
+                                 pageLinks="5">
+
+                        <p:ajax event="rowSelect"
+                                update=":formTipo"/>
+                        <p:ajax event="rowDblselect" resetValues="true"
+                                listener="#{tipoContactoBackBean.editarTipoContacto}"
+                                update=":formAct"/>
+
+                        <p:column headerText="Región" style="text-align: left !important;" sortBy="#{tip.tipo}">
+                            <h:outputText value="#{tip.tipo}"/>
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: left !important; width: 80px;" sortBy="#{tip.estado}">
+                            <h:outputText value="#{tip.estado == 0 ? 'Activo' : 'Inactivo'}"/>
+                        </p:column>
+                    </p:dataTable>
+
+                </p:panel>
+            </div>
+        </h:form>
+        <p:dialog id="vTipoContacto" widgetVar="vTipoContacto" header="#{tipoContactoBackBean.tituloModal}"
+                  showEffect="clip" hideEffect="clip"
+                  height="80" width="570" modal="true" resizable="false">
+
+            <h:form id="formAct">
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+
+                    <p:outputLabel value="Tipo Contacto : " for="sTipo"/>
+                    <p:inputText id="sTipo"  value="#{tipoContactoBackBean.txtTipoContacto}" required="true"
+                                 style="width: 90% !important;"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnGuardar"
+                                     value="Guardar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{tipoContactoBackBean.guardarTipoContacto}"
+                                     update=":formTipo"/>
+                    <p:commandButton id="btnCerrar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":formTipo"
+                                     oncomplete="PF('vTipoContacto').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+        <p:dialog id="confirmar" widgetVar="confirmar" header="Confirmar"
+                  showEffect="clip" hideEffect="clip"
+                  height="80" width="370" modal="true" resizable="false">
+
+            <h:form id="formConfirmar">
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+
+                    <p:outputLabel value="#{tipoContactoBackBean.selectRow.estado == 0 ? 'Esta seguro dar de baja a Tipo Contacto: ' : 'Esta seguro de activar a Tipo Contacto: '} #{tipoContactoBackBean.selectRow.tipo}?"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnGuardar"
+                                     value="Guardar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{tipoContactoBackBean.darDeBaja}"
+                                     update=":formTipo"/>
+                    <p:commandButton id="btnCancelar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":formTipo"
+                                     oncomplete="PF('confirmar').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+    </ui:define>
+</ui:composition>

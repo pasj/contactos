@@ -1,0 +1,178 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+        <h:form id="formGrupos" style="border: none">
+            <p:growl id="messages" showDetail="true"/>
+            <div style="width: 40% !important; margin: 0 auto;">
+                <p:panel header="Grupos de Contactos" style="text-align: center" styleClass="panelSinBordes"
+                rendered="#{grupoContactoBackBean.principal}">
+
+                    <div style="text-align: center; margin-bottom: 12px;">
+                        <p:commandButton icon="btnAgregarDetalle"
+                                         value="Agregar"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         process="@this"
+                                         styleClass="separador-botones"
+                                         actionListener="#{grupoContactoBackBean.nuevoGrupo}"
+                                         update=":formGrupos"/>
+
+                        <p:commandButton icon="btnEditar"
+                                         value="Editar"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         resetValues="true"
+                                         styleClass="separador-botones"
+                                         update=":formGrupos"
+                                         disabled="#{grupoContactoBackBean.selectRow == null}"
+                                         action="#{grupoContactoBackBean.editarGrupo}"/>
+
+                        <p:commandButton icon="btnCerrar"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         disabled="#{grupoContactoBackBean.selectRow == null}"
+                                         update=":formConfirmar"
+                                         value="Eliminar"
+                                         oncomplete="PF('confirmar').show();"/>
+
+
+                    </div>
+                    <p:dataTable id="tblGrupos" styleClass="panelSinBordes"
+                                 widgetVar="tblGrupos"
+                                 var="reg"
+                                 emptyMessage="No hay grupos registrados"
+                                 value="#{grupoContactoBackBean.listaGrupos}"
+                                 paginatorPosition="top"
+                                 selectionMode="single"
+                                 scrollable="true"
+                                 selection="#{grupoContactoBackBean.selectRow}"
+                                 rowKey="#{reg.id}"
+                                 paginator="true"
+                                 rows="12"
+                                 pageLinks="3">
+
+                        <p:ajax event="rowSelect"
+                                update=":formGrupos"/>
+                        <p:ajax event="rowDblselect" resetValues="true"
+                                listener="#{grupoContactoBackBean.editarGrupo}"
+                                update=":formGrupos"/>
+
+                        <p:column headerText="Contacto" style="text-align: left !important;" sortBy="#{reg.grupo}">
+                            <h:outputText value="#{reg.grupo}"/>
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: left !important; width: 80px;" sortBy="#{reg.estado}">
+                            <h:outputText value="#{reg.estado == 0 ? 'Activo' : 'Inactivo'}"/>
+                        </p:column>
+                    </p:dataTable>
+
+                </p:panel>
+                <p:panel header="#{grupoContactoBackBean.tituloModal}" style="text-align: center" styleClass="panelSinBordes"
+                         rendered="#{grupoContactoBackBean.edicion}">
+                    <p:panelGrid columns="2" columnClasses="width10, width90">
+
+                        <p:outputLabel for="sGrupo" value="Grupo" />
+                        <p:inputText id="sGrupo" label="Grupo de Contacto"
+                                     style="width: 90% !important;" value="#{grupoContactoBackBean.txtGrupo}"/>
+
+                    </p:panelGrid>
+                    <div style="text-align: right">
+                        <p:commandButton icon="btnAgregarDetalle"
+                                         value="Agregar Contactos"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         styleClass="separador-botones"
+                                         actionListener="#{grupoContactoBackBean.guardarGrupo}"
+                                         update=":formGrupos"/>
+
+                        <p:commandButton icon="btnEliminar"
+                                         value="Eliminar Contacto"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         styleClass="separador-botones"
+                                         disabled="#{grupoContactoBackBean.selectContacto == null}"
+                                         oncomplete="PF('confirmar').show();"
+                                         update=":formGrupos"/>
+
+                        <p:commandButton id="btnCerrar"
+                                         icon="btnCerrar"
+                                         value="Cerrar"
+                                         ajax="true"
+                                         styleClass="separador-botones"
+                                         process="@this"
+                                         action="#{grupoContactoBackBean.cerrarGrupo}"
+                                         style="margin-right: 5px; margin-left: 5px;"
+                                         update=":formGrupos"/>
+                    </div>
+
+                    <p:dataTable id="tblContacto" styleClass="panelSinBordes"
+                                 widgetVar="tblContacto"
+                                 var="reg"
+                                 emptyMessage="No hay contactos registrados"
+                                 value="#{grupoContactoBackBean.listaGrupoContacto}"
+                                 paginatorPosition="top"
+                                 selectionMode="single"
+                                 scrollable="true"
+                                 selection="#{grupoContactoBackBean.selectContacto}"
+                                 rowKey="#{reg.id}"
+                                 paginator="true"
+                                 rows="12"
+                                 pageLinks="10">
+
+                        <p:ajax event="rowSelect"
+                                update=":formGrupos"/>
+                        <p:ajax event="rowDblselect" resetValues="true"
+                                listener="#{grupoContactoBackBean.editarGrupo}"
+                                update=":formGrupos"/>
+
+                        <p:column headerText="Contacto" style="text-align: left !important;" sortBy="#{reg.contactoId.nombre}">
+                            <h:outputText value="#{reg.contactoId.nombre}"/>
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: left !important; width: 80px;" sortBy="#{reg.contactoId.estado}">
+                            <h:outputText value="#{reg.contactoId.estado == 0 ? 'Activo' : 'Inactivo'}"/>
+                        </p:column>
+                    </p:dataTable>
+
+
+                </p:panel>
+            </div>
+        </h:form>
+
+        <p:dialog id="confirmar" widgetVar="confirmar" header="Confirmar"
+                  showEffect="clip" hideEffect="clip"
+                  height="80" width="370" modal="true" resizable="false">
+
+            <h:form id="formConfirmar">
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+
+                    <p:outputLabel value="Esta seguro de eliminar contacto del grupo?"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnAceptar"
+                                     value="Aceptar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{grupoContactoBackBean.eliminarContacto}"
+                                     update=":formGrupos"/>
+                    <p:commandButton id="btnCancelar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":formGrupos"
+                                     oncomplete="PF('confirmar').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+    </ui:define>
+</ui:composition>

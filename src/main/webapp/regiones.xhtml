@@ -1,0 +1,159 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+
+        <h:form id="frmRegiones">
+            <p:growl id="growl" showDetail="true" life="30000"/>
+            <div style="width: 40% !important; margin: 0 auto;">
+                <p:panel header="REGIONES" style="text-align: center" styleClass="panelSinBordes">
+                    <p:panel styleClass="center panelSinBordes" style="display: block; border: hidden">
+                        <p:remoteCommand name="listarLazy"
+                                         update=":frmRegiones:tblRegiones"
+                                         actionListener="#{regionesBackBean.obtenerRegiones}"/>
+
+                        <p:inputText value="#{regionesBackBean.txtBuscar}"
+                                     placeholder="Digite Región a Buscar"
+                                     onkeypress="if (event.keyCode == 13) {listarLazy(); return false;}"
+                                     style="margin-top: 15px; margin-bottom: 15px;"/>
+                    </p:panel>
+                    <div style="text-align: center; margin-bottom: 12px;">
+                        <p:commandButton icon="btnAgregarDetalle"
+                                         value="Agregar"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         process="@this"
+                                         styleClass="separador-botones"
+                                         actionListener="#{regionesBackBean.nuevaRegion}"
+                                         update=":frmRegiones"/>
+
+                        <p:commandButton icon="btnEditar"
+                                         value="Editar"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         resetValues="true"
+                                         styleClass="separador-botones"
+                                         update=":frmRegiones"
+                                         disabled="#{regionesBackBean.selectRow == null}"
+                                         action="#{regionesBackBean.editarRegion}"/>
+
+                        <p:commandButton icon="btnCambiarEstado"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         disabled="#{regionesBackBean.selectRow == null}"
+                                         update=":formConfirmar"
+                                         value="Cambiar Estado"
+                                         oncomplete="PF('confirmar').show();"/>
+
+                        <p:commandButton id="btnBuscar"
+                                         icon="btnBuscar"
+                                         value="Buscar"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         styleClass="separador-botones"
+                                         action="#{regionesBackBean.obtenerRegiones}"
+                                         update=":frmRegiones:tblRegiones"/>
+
+                    </div>
+                    <p:dataTable id="tblRegiones" styleClass="panelSinBordes"
+                                 widgetVar="tblRegiones"
+                                 var="reg"
+                                 emptyMessage="No hay regiones registradas"
+                                 value="#{regionesBackBean.listaRegiones}"
+                                 paginatorPosition="top"
+                                 selectionMode="single"
+                                 scrollable="true"
+                                 selection="#{regionesBackBean.selectRow}"
+                                 rowKey="#{reg.id}"
+                                 paginator="true"
+                                 rows="12"
+                                 pageLinks="3">
+
+                        <p:ajax event="rowSelect"
+                                update=":frmRegiones"/>
+                        <p:ajax event="rowDblselect" resetValues="true"
+                                listener="#{regionesBackBean.editarRegion}"
+                                update=":formAct"/>
+
+                        <p:column headerText="Región" style="text-align: left !important;" sortBy="#{reg.region}">
+                            <h:outputText value="#{reg.region}"/>
+                        </p:column>
+                        <p:column headerText="Estado" style="text-align: left !important; width: 80px;" sortBy="#{reg.estado}">
+                            <h:outputText value="#{reg.estado == 0 ? 'Activo' : 'Inactivo'}"/>
+                        </p:column>
+                    </p:dataTable>
+
+                </p:panel>
+
+            </div>
+        </h:form>
+
+        <p:dialog id="vRegion" widgetVar="vRegion" header="#{regionesBackBean.tituloModal}"
+                  showEffect="clip" hideEffect="clip"
+                  height="80" width="570" modal="true" resizable="false">
+
+            <h:form id="formAct">
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+
+                    <p:outputLabel value="Región : " for="sRegion"/>
+                    <p:inputText id="sRegion"  value="#{regionesBackBean.txtRegion}" required="true"
+                                 style="width: 90% !important;"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnGuardar"
+                                     value="Guardar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{regionesBackBean.guardarRegion}"
+                                     update=":frmRegiones"/>
+                    <p:commandButton id="btnCerrar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":frmRegiones"
+                                     oncomplete="PF('vRegion').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+        <p:dialog id="confirmar" widgetVar="confirmar" header="Confirmar"
+                  showEffect="clip" hideEffect="clip"
+                  height="80" width="370" modal="true" resizable="false">
+
+            <h:form id="formConfirmar">
+                <p:panelGrid columns="2" columnClasses="width10 width10">
+
+                    <p:outputLabel value="#{regionesBackBean.selectRow.estado == 0 ? 'Esta seguro dar de baja a region' : 'Esta seguro de activar region'} #{regionesBackBean.selectRow.region}?"/>
+                </p:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton icon="btnGuardar"
+                                     value="Guardar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     actionListener="#{regionesBackBean.darDeBaja}"
+                                     update=":frmRegiones"/>
+                    <p:commandButton id="btnCancelar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     update=":frmRegiones"
+                                     oncomplete="PF('confirmar').hide();"/>
+                </div>
+
+            </h:form>
+        </p:dialog>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="NewPersistenceUnit">
+        <class>com.entidades.Reuniones</class>
+        <class>com.entidades.Usuarios</class>
+        <class>com.entidades.Oficinas</class>
+        <class>com.entidades.TipoContacto</class>
+        <class>com.entidades.Regiones</class>
+        <class>com.entidades.Contacto</class>
+        <class>com.entidades.Paises</class>
+        <class>com.entidades.EstadoDpto</class>
+        <class>com.entidades.ReunionesUsuarios</class>
+        <class>com.entidades.Salas</class>
+        <class>com.entidades.Salones</class>
+        <class>com.entidades.GrupoContacto</class>
+        <class>com.entidades.Grupos</class>
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/contactos"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.user"/>
+            <property name="eclipselink.jdbc.password"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/contactos"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username"/>
+            <property name="hibernate.connection.password"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost:5432/contactos"/>
+            <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+            <property name="openjpa.ConnectionUserName"/>
+            <property name="openjpa.ConnectionPassword"/>
+            <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/gb_contactos"/>
+            <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="toplink.jdbc.user"/>
+            <property name="toplink.jdbc.password"/>
+        </properties>
+    </persistence-unit>
+</persistence>

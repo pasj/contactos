@@ -1,0 +1,169 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+        <h:form id="formContacto" style="border: none">
+            <p:panel id="panelPrincilal" header="Contactos Activos"
+                     style="margin-bottom: 12px; background: white; border: none !important; text-align: center;"
+                     rendered="#{contactosActivosBackBean.principal}">
+
+                <p:outputLabel value="Nombre: " style="color:#044128;"/>
+                <p:inputText
+                        id="buscaNombre"
+                        value="#{contactosActivosBackBean.cadenaBusqueda}"
+                        required="true"
+                        autocomplete="off"/>
+                <p:outputLabel value="Empresa: " style="color:#044128; margin-left: 10px"/>
+                <p:inputText
+                        id="buscarEmpresa"
+                        value="#{contactosActivosBackBean.cadenaBusqueda}"
+                        required="true"
+                        autocomplete="off"/>
+
+                <div style="text-align: center; margin-bottom: 12px; margin-top: 20px;">
+                    <p:commandButton icon="btnAgregarDetalle"
+                                     value="Agregar"
+                                     resetValues="true"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     process="@this"
+                                     styleClass="separador-botones"
+                                     actionListener="#{contactosActivosBackBean.nuevoContacto}"
+                                     update=":formContacto"/>
+
+                    <p:commandButton icon="btnEditar"
+                                     value="Editar"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     resetValues="true"
+                                     styleClass="separador-botones"
+                                     update=":formContacto"
+                    />
+
+                    <p:commandButton icon="btnCambiarEstado"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     value="Dar de Baja"/>
+
+                    <p:commandButton id="btnBuscar"
+                                     icon="btnBuscar"
+                                     value="Buscar"
+                                     ajax="true"
+                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     update=":formContacto"/>
+                </div>
+                <p:dataTable id="tableBuscar" widgetVar="tableBuscar"
+                             emptyMessage="No hay registros">
+                    <p:column headerText="Tipo Contacto">
+
+                    </p:column>
+                    <p:column headerText="Nombre">
+
+                    </p:column>
+                    <p:column headerText="Empresa">
+
+                    </p:column>
+                    <p:column headerText="Región">
+
+                    </p:column>
+                    <p:column headerText="País">
+
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+
+            <p:panel id="panelEdicion" header="#{contactosActivosBackBean.tituloModal}"
+                     style="margin-bottom: 12px; background: white; border: none !important; text-align: center;"
+                     rendered="#{contactosActivosBackBean.edicion}">
+
+                <div style="width: 70% !important;  margin: 0 auto; margin-bottom: 20px;">
+                    <div style="text-align: right; margin-bottom: 12px; margin-top: 20px; margin-bottom: 20px;">
+                        <p:commandButton icon="btnGuardar"
+                                         value="Guardar"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;"
+                                         process="@this"
+                                         styleClass="separador-botones"
+                                         actionListener="#{contactosActivosBackBean.nuevoContacto}"
+                                         update=":formContacto"/>
+                        <p:commandButton icon="btnCerrar"
+                                         value="Cerrar"
+                                         resetValues="true"
+                                         ajax="true"
+                                         style="margin-left: 5px !important; margin-right: 5px !important;  "
+                                         process="@this"
+                                         styleClass="separador-botones"
+                                         action="#{contactosActivosBackBean.cancelarEdicion}"
+                                         update=":formContacto"/>
+                    </div>
+                    <p:tabView style="height: 250px !important;" styleClass="panelsinfondo">
+                        <p:tab title="Datos Personales">
+                            <p:panelGrid columns="2" columnClasses="width20, width80"
+                                         styleClass="panelSinBordes" style="text-align: left !important;">
+                                <p:outputLabel for="tipo" value="Tipo Contacto"/>
+                                <p:selectOneMenu id="tipo" value="#{contactosActivosBackBean.iTipo}">
+                                    <f:selectItems var="tip" value="#{contactosActivosBackBean.listaTipoContacto}"
+                                                   itemLabel="#{tip.tipo}" itemValue="#{tip.id}"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel for="nombrec" value="Nombres :"/>
+                                <p:inputText id="nombrec" value="#{contactosActivosBackBean.txtNombre}"
+                                             required="true" style="width: 90% !important;"/>
+                                <p:outputLabel for="fechac" value="Fecha Nacimiento: "/>
+                                <p:calendar id="fechac" value="#{contactosActivosBackBean.fecha}" showOn="button"/>
+                                <p:outputLabel for="direccionc" value="Dirección: "/>
+                                <p:inputTextarea id="direccionc" value="#{contactosActivosBackBean.txtDireccion}"
+                                                 style="width: 90% !important;"/>
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab title="Datos Corporativos">
+                            <p:panelGrid columns="2" columnClasses="width20, width80" styleClass="panelSinBordes">
+                                <p:outputLabel for="institucionc" value="Institución: "/>
+                                <p:inputText id="institucionc" value="#{contactosActivosBackBean.txtEmpresa}"
+                                             style="width: 100% !important;"/>
+                                <p:outputLabel value="Cargo: "/>
+                                <p:inputText value="#{contactosActivosBackBean.txtCargo}"
+                                             style="width: 100% !important;"/>
+                                <p:outputLabel for="telc" value="Telefono Personal: "/>
+                                <p:inputText id="telc" value="#{contactosActivosBackBean.txtTelefonoPersonal}"
+                                             style="width: 100% !important;"/>
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab title="Forma de Contacto">
+                            <p:panelGrid columns="2" columnClasses="width20, width80"
+                                         styleClass="panelSinBordes">
+
+                                <p:outputLabel for="correo" value="Email :"/>
+                                <p:inputText id="correo" value="#{contactosActivosBackBean.txtNombre}"
+                                             required="true" style="width: 100% !important;"/>
+                                <p:outputLabel for="web" value="Página Web: "/>
+                                <p:calendar id="web" value="#{contactosActivosBackBean.txtNombre}"
+                                            style="width: 100% !important;"/>
+                                <p:outputLabel for="telp" value="Telefono Personal: "/>
+                                <p:inputText id="telp" value="#{contactosActivosBackBean.txtDireccion}"
+                                             style="width: 100% !important;"/>
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab title="Grupo de Correo">
+                            <p:selectManyMenu id="grupos" label="Grupo de Contacto" value="#{contactosActivosBackBean.grupoSeleccionados}"
+                                              filterMatchMode="contains" showCheckbox="true" style="width: 280px; text-align: left !important; margin-left: 50px">
+                                <f:selectItems value="#{contactosActivosBackBean.listaGrupos}"
+                                               itemLabel="#{abg.grupo}"
+                                               var="abg"
+                                               itemValue="#{abg.id}" />
+
+                            </p:selectManyMenu>
+
+                        </p:tab>
+                    </p:tabView>
+
+                </div>
+            </p:panel>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,126 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+        <h:form id="frmUsuarios">
+            <div style="width: 60% !important; margin: 0 auto;">
+                <p:panel header="Usuarios del Sistema" style="text-align: center">
+                    <p:panel rendered="#{usuariosBackBean.bPrincipal}">
+
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <p:commandButton icon="btnAgregarDetalle"
+                                             value="Agregar"
+                                             resetValues="true"
+                                             ajax="true"
+                                             style="margin-left: 5px !important; margin-right: 5px !important;"
+                                             process="@this"
+                                             styleClass="separador-botones"
+                                             actionListener="#{usuariosBackBean.nuevoUsuario}"
+                                             update=":frmUsuarios"/>
+
+                            <p:commandButton icon="btnEditar"
+                                             value="Editar"
+                                             ajax="true"
+                                             style="margin-left: 5px !important; margin-right: 5px !important;"
+                                             resetValues="true"
+                                             action="#{usuariosBackBean.editarUsuario}"
+                                             styleClass="separador-botones"
+                                             update=":frmUsuarios"
+                                             disabled="#{usuariosBackBean.selectedRow == null}"/>
+
+                            <p:commandButton icon="btnCambiarEstado"
+                                             style="margin-left: 5px !important; margin-right: 5px !important;"
+                                             value="Dar de Baja"
+                                             disabled="#{usuariosBackBean.selectedRow == null}"/>
+
+                        </div>
+                        <p:dataTable id="tblUsuarios"
+                                     widgetVar="tblUsuarios"
+                                     var="usu"
+                                     emptyMessage="No hay usuarios registros"
+                                     value="#{usuariosBackBean.listaUsuarios}"
+                                     paginatorPosition="top"
+                                     selectionMode="single"
+                                     scrollable="true"
+                                     selection="#{usuariosBackBean.selectedRow}"
+                                     rowKey="#{usu.id}"
+                                     paginator="true"
+                                     rows="12"
+                                     pageLinks="10">
+
+                            <p:ajax event="rowSelect"
+                                    update=":frmUsuarios"/>
+
+                            <p:column headerText="Nombres" style="text-align: left !important;" sortBy="#{usu.nombre}">
+                                <h:outputText value="#{usu.nombre}"/>
+                            </p:column>
+                            <p:column headerText="Login" style="text-align: left !important;" sortBy="#{usu.login}">
+                                <h:outputText value="#{usu.login}"/>
+                            </p:column>
+                            <p:column headerText="Oficina" style="text-align: left !important;"
+                                      sortBy="#{usu.idoficina.oficina}">
+                                <h:outputText value="#{usu.idoficina.oficina}"/>
+                            </p:column>
+                            <p:column headerText="Estado" style="text-align: left !important;" sortBy="#{usu.estado}">
+                                <h:outputText value="#{usu.estado == 0 ? 'Activo' : 'Inactivo'}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                    <p:panel rendered="#{usuariosBackBean.bEditar}">
+                        <div style="text-align: left">
+                            <h:form id="formAct">
+                                <div style="text-align: right">
+                                    <p:commandButton icon="btnGuardar"
+                                                     value="Guardar"
+                                                     resetValues="true"
+                                                     ajax="true"
+                                                     style="margin-left: 5px !important; margin-right: 5px !important;"
+                                                     styleClass="separador-botones"
+
+                                                     update=":frmUsuarios"/>
+                                    <p:commandButton id="btnCancelar"
+                                                     icon="btnCerrar"
+                                                     value="Cancelar"
+                                                     ajax="true"
+                                                     styleClass="separador-botones"
+                                                     process="@this"
+                                                     style="margin-right: 5px; margin-left: 5px;"
+                                                     update=":frmUsuarios"
+                                                     action="#{usuariosBackBean.cancelar}"/>
+                                </div>
+                                <p:focus for="sLogin"/>
+                                <p:panelGrid columns="2" columnClasses="width10 width10" style="margin-top: 30px;">
+
+                                    <p:outputLabel value="Login: " for="sLogin"/>
+                                    <p:inputText id="sLogin" value="#{usuariosBackBean.txtLogin}" required="true"/>
+
+                                    <p:outputLabel value="Nombre: " for="sNombre"/>
+                                    <p:inputText id="sNombre" value="#{usuariosBackBean.txtNombre}" required="true"
+                                                 style="width: 90% !important;"/>
+                                </p:panelGrid>
+                                <p:panelGrid columns="4" columnClasses="width20, width30, width20, width30">
+                                    <p:outputLabel value="Clave"/>
+                                    <p:password value="#{usuariosBackBean.txtClave}"/>
+                                    <p:outputLabel value="Confirmar"/>
+                                    <p:password value="#{usuariosBackBean.txtConfirma}"/>
+                                    <p:outputLabel value="Es Abogado  "/>
+                                    <p:selectBooleanCheckbox value="#{usuariosBackBean.bAbogado}"/>
+                                    <p:outputLabel value="Reiniciar Clave  "/>
+                                    <p:selectBooleanCheckbox value="#{usuariosBackBean.bCambiar}"/>
+                                </p:panelGrid>
+
+                            </h:form>
+                        </div>
+                    </p:panel>
+                </p:panel>
+
+            </div>
+        </h:form>
+
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,132 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/innerLayot.xhtml">
+    <ui:define name="content">
+        <h:form id="formReuniones" style="border: none">
+
+            <p:growl id="messages" showDetail="true"/>
+            <p:panel id="panelPrincilal" header="Agenda de Reuniones"
+                     style="margin-bottom: 12px; background: white; border: none !important; text-align: center;">
+            </p:panel>
+            <div style="width: 80% !important; margin: 0 auto;">
+
+                <p:panelGrid columns="2" styleClass="panelSinBordes" style="text-align: center">
+                    <p:outputLabel value="Oficina" />
+                    <p:selectOneMenu value="#{reunionesBackBean.iOficina}"
+                                     filterMatchMode="contains"
+                    valueChangeListener="#{reunionesBackBean.cambioOficina}">
+                        <p:ajax event="change" update="schedule" process="@this"/>
+                        <f:selectItems var="ofc" value="#{reunionesBackBean.listaOficinas}"
+                                       itemLabel="#{ofc.oficina}"
+                                       itemValue="#{ofc.id}">
+                        </f:selectItems>
+                    </p:selectOneMenu>
+                </p:panelGrid>
+                <p:schedule id="schedule"  value="#{reunionesBackBean.eventModel}"
+                            view="agendaDay"
+                            tooltip="true"
+                            widgetVar="myschedule"
+                            locale="es"
+                            minTime="07:00"
+                            maxTime="19:00"
+                            timeFormat="HH:mm"
+                            slotMinutes="30"
+                            firstHour="7"
+                            showWeekends="true"
+                            axisFormat="HH:mm"
+                            timeZone="GMT-6"
+                            allDaySlot="false"
+                            resizable="false">
+                    <p:ajax event="dateSelect" listener="#{reunionesBackBean.onDateSelect}" update="eventDetails"
+                            oncomplete="PF('eventDialog').show()"/>
+                    <p:ajax event="eventSelect" listener="#{reunionesBackBean.onEventSelect}" update="eventDetails"/>
+                    <p:ajax event="eventMove" listener="#{reunionesBackBean.onEventMove}" update="messages"/>
+                    <p:ajax event="eventResize" listener="#{reunionesBackBean.onEventResize}" update="messages"/>
+                </p:schedule>
+
+            </div>
+
+
+            <p:dialog widgetVar="eventDialog" header="Detalle del Evento" showEffect="clip" hideEffect="clip"
+                      height="380" width="570" modal="true" resizable="false">
+                <h:panelGrid id="eventDetails" columns="2" columnClasses="width10 width20">
+                    <h:outputLabel for="title" value="Titulo:"/>
+                    <p:inputText id="title" value="#{reunionesBackBean.event.title}" required="true"
+                                 style="width: 100% !important;"/>
+
+                    <h:outputLabel for="from" value="Inicia:"/>
+                    <p:calendar id="from" value="#{reunionesBackBean.event.startDate}" required="true"
+                                pattern="dd/MM/yyyy HH:mm:ss"/>
+
+
+                    <h:outputLabel for="to" value="Finaliza:"/>
+                    <p:calendar id="to" value="#{reunionesBackBean.event.endDate}" required="true"
+                                pattern="dd/MM/yyyy HH:mm:ss"/>
+
+                    <p:outputLabel for="desc" value="Descripción"/>
+                    <p:inputTextarea rows="2" cols="70" autoResize="false" id="desc" required="true"
+                                     value="#{reunionesBackBean.event.description}"/>
+                    <p:outputLabel for="abogado" value="Abogados: " />
+                    <p:selectManyMenu id="abogado" value="#{reunionesBackBean.listaUsuariosSeleccionados}"
+                                      filterMatchMode="contains" showCheckbox="true" style="width: 280px;">
+                        <f:selectItems value="#{reunionesBackBean.listaUsuarios}"
+                                       itemLabel="#{abg.nombre}"
+                                       var="abg"
+                                       itemValue="#{abg.id}" />
+
+                    </p:selectManyMenu>
+
+
+                </h:panelGrid>
+                <div style="text-align: right">
+                    <p:commandButton type="reset" icon="btnLimpiar" value="Limpiar" style="margin-right: 5px;"/>
+                    <p:commandButton id="btnGuardar" icon="btnGuardar" value="Guardar"
+                                     actionListener="#{reunionesBackBean.addEvent}"
+                                     style="margin-right: 5px; margin-left: 5px;"
+
+                                     oncomplete="PF('myschedule').update();"/>
+                    <p:commandButton id="btnCerrar"
+                                     icon="btnCerrar"
+                                     value="Cerrar"
+                                     ajax="true"
+                                     styleClass="separador-botones"
+                                     process="@this"
+                                     style="margin-right: 5px; margin-left: 5px;"
+                                     oncomplete="PF('eventDialog').hide();"/>
+                </div>
+            </p:dialog>
+
+        </h:form>
+        <script type="text/javascript">
+            PrimeFaces.locales['es'] = {
+                closeText: 'Cerrar',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                weekHeader: 'Semana',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Sólo hora',
+                timeText: 'Tiempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Fecha actual',
+                ampm: false,
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Día',
+                allDayText: 'Todo el día'
+            };
+        </script>
+    </ui:define>
+</ui:composition>

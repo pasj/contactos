@@ -1,0 +1,1705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="PostgreSQL - gb_contactos@localhost" uuid="af74975c-3ced-4797-946f-34340cb630d4">
+    <database-info product="PostgreSQL" version="9.3.5" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="POSTGRES" format-version="2.4">
+      <database id="1" name="contactos"/>
+      <database id="2" name="gb_contactos"/>
+      <schema id="3" parent="1" name="agenda">
+        <object-id>33081</object-id>
+        <introspection-state-number>1157</introspection-state-number>
+        <introspection-timestamp>2017-01-23.23:27:16.412</introspection-timestamp>
+      </schema>
+      <schema id="4" parent="1" name="contactos">
+        <object-id>32818</object-id>
+        <introspection-state-number>1126</introspection-state-number>
+        <introspection-timestamp>2017-01-23.22:40:35.556</introspection-timestamp>
+      </schema>
+      <schema id="5" parent="1" name="clasificadores">
+        <object-id>32955</object-id>
+        <introspection-state-number>1157</introspection-state-number>
+        <introspection-timestamp>2017-01-23.23:27:16.767</introspection-timestamp>
+      </schema>
+      <schema id="6" parent="2" name="agenda">
+        <object-id>33141</object-id>
+        <introspection-state-number>1601</introspection-state-number>
+        <introspection-timestamp>2017-02-06.23:52:00.609</introspection-timestamp>
+      </schema>
+      <schema id="7" parent="2" name="catalogos">
+        <object-id>33142</object-id>
+        <introspection-state-number>1625</introspection-state-number>
+        <introspection-timestamp>2017-02-12.21:24:43.951</introspection-timestamp>
+      </schema>
+      <schema id="8" parent="2" name="contactos">
+        <object-id>33371</object-id>
+        <introspection-state-number>1598</introspection-state-number>
+        <introspection-timestamp>2017-02-06.23:05:27.955</introspection-timestamp>
+      </schema>
+      <sequence id="9" parent="3" name="reuniones_reuniones_id_seq">
+        <object-id>33082</object-id>
+        <state-number>1137</state-number>
+      </sequence>
+      <table id="10" parent="3" name="reuniones">
+        <object-id>33084</object-id>
+        <state-number>1157</state-number>
+      </table>
+      <sequence id="11" parent="4" name="usuario_usuario_id_seq">
+        <object-id>32819</object-id>
+        <state-number>1023</state-number>
+      </sequence>
+      <table id="12" parent="4" name="contacto">
+        <object-id>33046</object-id>
+        <state-number>1123</state-number>
+      </table>
+      <table id="13" parent="4" name="usuario">
+        <object-id>32821</object-id>
+        <state-number>1023</state-number>
+      </table>
+      <sequence id="14" parent="5" name="categorias_categoria_id_seq">
+        <object-id>33003</object-id>
+        <state-number>1100</state-number>
+      </sequence>
+      <sequence id="15" parent="5" name="estado_estado_id_seq">
+        <object-id>33017</object-id>
+        <state-number>1105</state-number>
+      </sequence>
+      <sequence id="16" parent="5" name="oficinas_oficina_id_seq">
+        <object-id>33030</object-id>
+        <state-number>1114</state-number>
+      </sequence>
+      <sequence id="17" parent="5" name="paises_pais_id_seq">
+        <object-id>33038</object-id>
+        <state-number>1119</state-number>
+      </sequence>
+      <sequence id="18" parent="5" name="regiones_region_id_seq">
+        <object-id>33064</object-id>
+        <state-number>1129</state-number>
+      </sequence>
+      <sequence id="19" parent="5" name="tipocontacto_tipocontacto_id_seq">
+        <object-id>33072</object-id>
+        <state-number>1133</state-number>
+      </sequence>
+      <sequence id="20" parent="5" name="usuarios_idusuario_seq">
+        <object-id>33126</object-id>
+        <state-number>1150</state-number>
+      </sequence>
+      <table id="21" parent="5" name="actividades">
+        <object-id>32956</object-id>
+        <state-number>1067</state-number>
+      </table>
+      <table id="22" parent="5" name="categorias">
+        <object-id>33005</object-id>
+        <state-number>1100</state-number>
+      </table>
+      <table id="23" parent="5" name="estado">
+        <object-id>33019</object-id>
+        <state-number>1105</state-number>
+      </table>
+      <table id="24" parent="5" name="grupo">
+        <object-id>32968</object-id>
+        <state-number>1075</state-number>
+      </table>
+      <table id="25" parent="5" name="oficinas">
+        <object-id>33032</object-id>
+        <state-number>1157</state-number>
+      </table>
+      <table id="26" parent="5" name="paises">
+        <object-id>33040</object-id>
+        <state-number>1119</state-number>
+      </table>
+      <table id="27" parent="5" name="privilegios">
+        <object-id>32977</object-id>
+        <state-number>1081</state-number>
+      </table>
+      <table id="28" parent="5" name="regiones">
+        <object-id>33066</object-id>
+        <state-number>1129</state-number>
+      </table>
+      <table id="29" parent="5" name="tipocontacto">
+        <object-id>33074</object-id>
+        <state-number>1133</state-number>
+      </table>
+      <table id="30" parent="5" name="usuarios">
+        <object-id>33128</object-id>
+        <state-number>1150</state-number>
+      </table>
+      <table id="31" parent="5" name="usuariosx">
+        <object-id>32987</object-id>
+        <state-number>1149</state-number>
+      </table>
+      <sequence id="32" parent="6" name="reuniones_reunion_id_seq">
+        <object-id>33308</object-id>
+        <state-number>1166</state-number>
+      </sequence>
+      <sequence id="33" parent="6" name="reuniones_usuarios_reuniones_usuarios_id_seq">
+        <object-id>34025</object-id>
+        <state-number>1601</state-number>
+      </sequence>
+      <sequence id="34" parent="6" name="salas_sala_id_seq">
+        <object-id>33334</object-id>
+        <state-number>1169</state-number>
+      </sequence>
+      <table id="35" parent="6" name="reuniones">
+        <object-id>33310</object-id>
+        <state-number>1601</state-number>
+      </table>
+      <table id="36" parent="6" name="reuniones_usuarios">
+        <object-id>34027</object-id>
+        <state-number>1601</state-number>
+      </table>
+      <table id="37" parent="6" name="salas">
+        <object-id>33336</object-id>
+        <state-number>1427</state-number>
+      </table>
+      <sequence id="38" parent="7" name="categorias_categoria_id_seq">
+        <object-id>33231</object-id>
+        <state-number>1166</state-number>
+      </sequence>
+      <sequence id="39" parent="7" name="estado_dpto_estado_id_seq">
+        <object-id>33249</object-id>
+        <state-number>1166</state-number>
+      </sequence>
+      <sequence id="40" parent="7" name="grupo_contacto_grupo_contacto_id_seq">
+        <object-id>34007</object-id>
+        <state-number>1598</state-number>
+      </sequence>
+      <sequence id="41" parent="7" name="grupos_grupo_id_seq">
+        <object-id>33969</object-id>
+        <state-number>1594</state-number>
+      </sequence>
+      <sequence id="42" parent="7" name="oficinas_oficina_id_seq">
+        <object-id>33272</object-id>
+        <state-number>1166</state-number>
+      </sequence>
+      <sequence id="43" parent="7" name="paises_pais_id_seq">
+        <object-id>33213</object-id>
+        <state-number>1165</state-number>
+      </sequence>
+      <sequence id="44" parent="7" name="regiones_region_id_seq">
+        <object-id>33195</object-id>
+        <state-number>1164</state-number>
+      </sequence>
+      <sequence id="45" parent="7" name="salones_salon_id_seq">
+        <object-id>33668</object-id>
+        <state-number>1474</state-number>
+      </sequence>
+      <sequence id="46" parent="7" name="tipo_contacto_tipo_contacto_id_seq">
+        <object-id>33290</object-id>
+        <state-number>1166</state-number>
+      </sequence>
+      <sequence id="47" parent="7" name="usuarios_usuarios_id_seq">
+        <object-id>33151</object-id>
+        <state-number>1162</state-number>
+      </sequence>
+      <table id="48" parent="7" name="categorias">
+        <object-id>33233</object-id>
+        <state-number>1166</state-number>
+      </table>
+      <table id="49" parent="7" name="estado_dpto">
+        <object-id>33251</object-id>
+        <state-number>1236</state-number>
+      </table>
+      <table id="50" parent="7" name="grupo_contacto">
+        <object-id>34009</object-id>
+        <state-number>1598</state-number>
+      </table>
+      <table id="51" parent="7" name="grupos">
+        <object-id>33971</object-id>
+        <state-number>1604</state-number>
+      </table>
+      <table id="52" parent="7" name="oficinas">
+        <object-id>33274</object-id>
+        <state-number>1474</state-number>
+      </table>
+      <table id="53" parent="7" name="paises">
+        <object-id>33215</object-id>
+        <state-number>1248</state-number>
+      </table>
+      <table id="54" parent="7" name="regiones">
+        <object-id>33197</object-id>
+        <state-number>1249</state-number>
+      </table>
+      <table id="55" parent="7" name="salones">
+        <object-id>33670</object-id>
+        <state-number>1474</state-number>
+      </table>
+      <table id="56" parent="7" name="tipo_contacto">
+        <object-id>33292</object-id>
+        <state-number>1243</state-number>
+      </table>
+      <table id="57" parent="7" name="usuarios">
+        <object-id>33153</object-id>
+        <state-number>1601</state-number>
+      </table>
+      <sequence id="58" parent="8" name="contacto_contacto_id_seq">
+        <object-id>33372</object-id>
+        <state-number>1224</state-number>
+      </sequence>
+      <table id="59" parent="8" name="contacto">
+        <object-id>33374</object-id>
+        <state-number>1598</state-number>
+      </table>
+      <column id="60" parent="10" name="reuniones_id">
+        <state-number>1137</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;agenda.reuniones_reuniones_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="61" parent="10" name="titulo">
+        <state-number>1137</state-number>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="62" parent="10" name="inicio">
+        <state-number>1141</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="63" parent="10" name="fin">
+        <state-number>1141</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="64" parent="10" name="descripcion">
+        <state-number>1137</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="65" parent="10" name="estatus">
+        <state-number>1137</state-number>
+        <data-type>boolean</data-type>
+      </column>
+      <column id="66" parent="10" name="oficina_id">
+        <state-number>1157</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <index id="67" parent="10" name="reunion_id_fk">
+        <object-id>33091</object-id>
+        <columns>reuniones_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="68" parent="10" name="reunion_id_fk">
+        <columns>reuniones_id</columns>
+        <underlying-index>reunion_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="69" parent="10" name="reuniones_oficinas_fk">
+        <columns>oficina_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="70" parent="12" name="idcontacto">
+        <state-number>1123</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="71" parent="12" name="idtipocontacto">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="72" parent="12" name="nombre">
+        <state-number>1123</state-number>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="73" parent="12" name="empresa">
+        <state-number>1123</state-number>
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="74" parent="12" name="cargo">
+        <state-number>1123</state-number>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="75" parent="12" name="direccion">
+        <state-number>1123</state-number>
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="76" parent="12" name="apartado">
+        <state-number>1123</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="77" parent="12" name="correo">
+        <state-number>1123</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="78" parent="12" name="webpage">
+        <state-number>1123</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="79" parent="12" name="telefono">
+        <state-number>1123</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="80" parent="12" name="extension">
+        <state-number>1123</state-number>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="81" parent="12" name="telefono_personal">
+        <state-number>1123</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="82" parent="12" name="fax">
+        <state-number>1123</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="83" parent="12" name="movil">
+        <state-number>1123</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="84" parent="12" name="idpais">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="85" parent="12" name="idestado">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="86" parent="12" name="idregion">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="87" parent="12" name="fechanac">
+        <state-number>1123</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="88" parent="12" name="estado">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="89" parent="12" name="idusuariocrea">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="90" parent="12" name="fechacrea">
+        <state-number>1123</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="91" parent="12" name="idusuariomod">
+        <state-number>1123</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="92" parent="12" name="fechamod">
+        <state-number>1123</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="93" parent="12" name="codigo_area">
+        <state-number>1123</state-number>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <index id="94" parent="12" name="contacto_pkey">
+        <object-id>33052</object-id>
+        <columns>idcontacto</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="95" parent="12" name="contacto_pkey">
+        <columns>idcontacto</columns>
+        <underlying-index>contacto_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="96" parent="13" name="usuario_id">
+        <state-number>1023</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;contactos.usuario_usuario_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="97" parent="13" name="nombre">
+        <state-number>1023</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="98" parent="13" name="contactos_pk">
+        <object-id>32825</object-id>
+        <columns>usuario_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="99" parent="13" name="contactos_pk">
+        <columns>usuario_id</columns>
+        <underlying-index>contactos_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="100" parent="21" name="idusuario">
+        <state-number>1067</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="101" parent="21" name="fecha">
+        <state-number>1067</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="102" parent="21" name="modulo">
+        <state-number>1067</state-number>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="103" parent="21" name="accion">
+        <state-number>1067</state-number>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="104" parent="21" name="idquien">
+        <state-number>1067</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="105" parent="22" name="categoria_id">
+        <comment>Identificador de la categoria</comment>
+        <state-number>1100</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.categorias_categoria_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="106" parent="22" name="categoria">
+        <state-number>1100</state-number>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <index id="107" parent="22" name="categoria_id_fk">
+        <object-id>33009</object-id>
+        <columns>categoria_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="108" parent="22" name="categoria_id_fk">
+        <columns>categoria_id</columns>
+        <underlying-index>categoria_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="109" parent="23" name="estado_id">
+        <state-number>1105</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.estado_estado_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="110" parent="23" name="idpais">
+        <state-number>1105</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="111" parent="23" name="dpto">
+        <state-number>1105</state-number>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="112" parent="23" name="estado">
+        <state-number>1105</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="113" parent="23" name="idusuariocrea">
+        <state-number>1105</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="114" parent="23" name="fechacrea">
+        <state-number>1105</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="115" parent="23" name="idusuariomod">
+        <state-number>1105</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="116" parent="23" name="fechamod">
+        <state-number>1105</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="117" parent="23" name="estado_id_key">
+        <object-id>33023</object-id>
+        <columns>estado_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="118" parent="23" name="estado_id_key">
+        <columns>estado_id</columns>
+        <underlying-index>estado_id_key</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="119" parent="24" name="nombregrupo">
+        <state-number>1075</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="120" parent="24" name="usuario">
+        <state-number>1075</state-number>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="121" parent="24" name="correo">
+        <state-number>1075</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="122" parent="24" name="idusuario">
+        <state-number>1075</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="123" parent="25" name="oficina_id">
+        <state-number>1114</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.oficinas_oficina_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="124" parent="25" name="oficina">
+        <state-number>1114</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <index id="125" parent="25" name="oficina_key">
+        <object-id>33036</object-id>
+        <columns>oficina_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="126" parent="25" name="oficina_key">
+        <columns>oficina_id</columns>
+        <underlying-index>oficina_key</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="127" parent="26" name="pais_id">
+        <state-number>1119</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.paises_pais_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="128" parent="26" name="pais">
+        <state-number>1119</state-number>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="129" parent="26" name="idregion">
+        <state-number>1119</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="130" parent="26" name="estado">
+        <state-number>1119</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="131" parent="26" name="idusuariocrea">
+        <state-number>1119</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="132" parent="26" name="fechacrea">
+        <state-number>1119</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="133" parent="26" name="idusuariomod">
+        <state-number>1119</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="134" parent="26" name="fechamod">
+        <state-number>1119</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="135" parent="26" name="pais_id_fk">
+        <object-id>33044</object-id>
+        <columns>pais_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="136" parent="26" name="pais_id_fk">
+        <columns>pais_id</columns>
+        <underlying-index>pais_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="137" parent="27" name="idprivilegio">
+        <state-number>1081</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="138" parent="27" name="nivel">
+        <state-number>1081</state-number>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="139" parent="28" name="region_id">
+        <state-number>1129</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.regiones_region_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="140" parent="28" name="region">
+        <state-number>1129</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="141" parent="28" name="estado">
+        <state-number>1129</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="142" parent="28" name="idusuariocrea">
+        <state-number>1129</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="143" parent="28" name="fechacrea">
+        <state-number>1129</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="144" parent="28" name="idusuariomod">
+        <state-number>1129</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="145" parent="28" name="fechamod">
+        <state-number>1129</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="146" parent="28" name="region_id_pk">
+        <object-id>33070</object-id>
+        <columns>region_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="147" parent="28" name="region_id_pk">
+        <columns>region_id</columns>
+        <underlying-index>region_id_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="148" parent="29" name="tipocontacto_id">
+        <state-number>1133</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.tipocontacto_tipocontacto_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="149" parent="29" name="tipocontacto">
+        <state-number>1133</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="150" parent="29" name="estado">
+        <state-number>1133</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="151" parent="29" name="idusuariocrea">
+        <state-number>1133</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="152" parent="29" name="fechacrea">
+        <state-number>1133</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="153" parent="29" name="idusuariomod">
+        <state-number>1133</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="154" parent="29" name="fechamod">
+        <state-number>1133</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="155" parent="29" name="tipocontacto_id_pk">
+        <object-id>33078</object-id>
+        <columns>tipocontacto_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="156" parent="29" name="tipocontacto_id_pk">
+        <columns>tipocontacto_id</columns>
+        <underlying-index>tipocontacto_id_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="157" parent="30" name="idusuario">
+        <state-number>1150</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;clasificadores.usuarios_idusuario_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="158" parent="30" name="login">
+        <state-number>1150</state-number>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="159" parent="30" name="nombre">
+        <state-number>1150</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="160" parent="30" name="clave">
+        <state-number>1150</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="161" parent="30" name="estado">
+        <state-number>1150</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="162" parent="30" name="idprivilegio">
+        <state-number>1150</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="163" parent="30" name="idoficina">
+        <state-number>1150</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="164" parent="30" name="idusuariocrea">
+        <state-number>1150</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="165" parent="30" name="fechacrea">
+        <state-number>1150</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="166" parent="30" name="idusuariomod">
+        <state-number>1150</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="167" parent="30" name="fechamod">
+        <state-number>1150</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="168" parent="30" name="usuarios_pk">
+        <object-id>33133</object-id>
+        <columns>idusuario</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="169" parent="30" name="usuarios_pk">
+        <columns>idusuario</columns>
+        <underlying-index>usuarios_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <column id="170" parent="31" name="idusuario">
+        <state-number>1088</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="171" parent="31" name="login">
+        <state-number>1088</state-number>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="172" parent="31" name="nombre">
+        <state-number>1088</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="173" parent="31" name="clave">
+        <state-number>1088</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="174" parent="31" name="estado">
+        <state-number>1088</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="175" parent="31" name="idprivilegio">
+        <state-number>1088</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="176" parent="31" name="idoficina">
+        <state-number>1088</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="177" parent="31" name="idusuariocrea">
+        <state-number>1088</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="178" parent="31" name="fechacrea">
+        <state-number>1088</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="179" parent="31" name="idusuariomod">
+        <state-number>1088</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="180" parent="31" name="fechamod">
+        <state-number>1088</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="181" parent="35" name="reunion_id">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;agenda.reuniones_reunion_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="182" parent="35" name="titulo">
+        <state-number>1166</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="183" parent="35" name="inicio">
+        <state-number>1166</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="184" parent="35" name="fin">
+        <state-number>1166</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="185" parent="35" name="descripcion">
+        <state-number>1166</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="186" parent="35" name="oficina_id">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="187" parent="35" name="estado">
+        <state-number>1285</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="188" parent="35" name="idusuariocrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="189" parent="35" name="fechacrea">
+        <state-number>1286</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="190" parent="35" name="idusuariomod">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="191" parent="35" name="fechamod">
+        <state-number>1286</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="192" parent="35" name="reunion_id_fk">
+        <object-id>33317</object-id>
+        <columns>reunion_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="193" parent="35" name="reunion_id_fk">
+        <columns>reunion_id</columns>
+        <underlying-index>reunion_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="194" parent="35" name="oficina_reunion_fk">
+        <columns>oficina_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="195" parent="35" name="usuario_crea_reunion_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="196" parent="35" name="usuario_modifica_reunion_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="197" parent="36" name="reuniones_usuarios_id">
+        <state-number>1601</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;agenda.reuniones_usuarios_reuniones_usuarios_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="198" parent="36" name="reunion_id">
+        <state-number>1601</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="199" parent="36" name="usuarios_id">
+        <state-number>1601</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <index id="200" parent="36" name="reuniones_usuarios_pk">
+        <object-id>34031</object-id>
+        <columns>reuniones_usuarios_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="201" parent="36" name="reuniones_usuarios_pk">
+        <columns>reuniones_usuarios_id</columns>
+        <underlying-index>reuniones_usuarios_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="202" parent="36" name="reuniones_usuarios_reuniones_fk">
+        <columns>reunion_id</columns>
+        <ref-key>~.reuniones.reunion_id_fk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="203" parent="36" name="reuniones_usuarios_usuarios_fk">
+        <columns>usuarios_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="204" parent="37" name="sala_id">
+        <state-number>1169</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;agenda.salas_sala_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="205" parent="37" name="titulo">
+        <state-number>1169</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="206" parent="37" name="inicio">
+        <state-number>1169</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="207" parent="37" name="fin">
+        <state-number>1169</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="208" parent="37" name="descripcion">
+        <state-number>1169</state-number>
+        <data-type>text</data-type>
+      </column>
+      <column id="209" parent="37" name="oficina_id">
+        <state-number>1169</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="210" parent="37" name="estado">
+        <state-number>1169</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="211" parent="37" name="idusuariocrea">
+        <state-number>1169</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="212" parent="37" name="fechacrea">
+        <state-number>1427</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="213" parent="37" name="idusuariomod">
+        <state-number>1169</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="214" parent="37" name="fechamod">
+        <state-number>1427</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="215" parent="37" name="sala_id_fk">
+        <object-id>33343</object-id>
+        <columns>sala_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="216" parent="37" name="sala_id_fk">
+        <columns>sala_id</columns>
+        <underlying-index>sala_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="217" parent="37" name="oficina_sala_fk">
+        <columns>oficina_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="218" parent="37" name="usuario_crea_sala_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="219" parent="37" name="usuario_modifica_sala_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="220" parent="48" name="categoria_id">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.categorias_categoria_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="221" parent="48" name="categoria">
+        <state-number>1166</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="222" parent="48" name="estado">
+        <state-number>1171</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>0</default-expression>
+      </column>
+      <column id="223" parent="48" name="idusuariocrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="224" parent="48" name="fechacrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="225" parent="48" name="idusuariomod">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="226" parent="48" name="fechamod">
+        <state-number>1166</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="227" parent="48" name="categoria_id_fk">
+        <object-id>33237</object-id>
+        <columns>categoria_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="228" parent="48" name="categoria_id_fk">
+        <columns>categoria_id</columns>
+        <underlying-index>categoria_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="229" parent="48" name="usuario_crea_estado_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="230" parent="48" name="usuario_modifica_estado_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="231" parent="49" name="estado_id">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.estado_dpto_estado_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="232" parent="49" name="nombre">
+        <state-number>1166</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="233" parent="49" name="pais_id">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="234" parent="49" name="estado">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="235" parent="49" name="idusuariocrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="236" parent="49" name="fechacrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="237" parent="49" name="idusuariomod">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="238" parent="49" name="fechamod">
+        <state-number>1166</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="239" parent="49" name="estado_id_fk">
+        <object-id>33255</object-id>
+        <columns>estado_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="240" parent="49" name="estado_id_fk">
+        <columns>estado_id</columns>
+        <underlying-index>estado_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="241" parent="49" name="pais_id_fk">
+        <columns>pais_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="242" parent="49" name="usuario_crea_estado_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="243" parent="49" name="usuario_modifica_estado_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="244" parent="50" name="grupo_contacto_id">
+        <state-number>1598</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.grupo_contacto_grupo_contacto_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="245" parent="50" name="grupo_id">
+        <state-number>1598</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="246" parent="50" name="contacto_id">
+        <state-number>1598</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <index id="247" parent="50" name="grupo_contacto_pk">
+        <object-id>34070</object-id>
+        <columns>grupo_contacto_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="248" parent="50" name="grupo_contacto_pk">
+        <columns>grupo_id
+contacto_id</columns>
+        <underlying-index>grupo_contacto_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="249" parent="50" name="grupo_contacto_grupo_fk">
+        <columns>grupo_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="250" parent="50" name="grupo_contacto_contacto_fk">
+        <columns>contacto_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="251" parent="51" name="grupo_id">
+        <state-number>1594</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.grupos_grupo_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="252" parent="51" name="grupo">
+        <state-number>1594</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="253" parent="51" name="estado">
+        <state-number>1594</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="254" parent="51" name="idusuariocrea">
+        <state-number>1594</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="255" parent="51" name="fechacrea">
+        <state-number>1604</state-number>
+        <mandatory>1</mandatory>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="256" parent="51" name="idusuariomod">
+        <state-number>1594</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="257" parent="51" name="fechamod">
+        <state-number>1604</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <index id="258" parent="51" name="grupo_id_fk">
+        <object-id>33975</object-id>
+        <columns>grupo_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="259" parent="51" name="grupo_id_fk">
+        <columns>grupo_id</columns>
+        <underlying-index>grupo_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="260" parent="51" name="usuario_crea_grupo_fk">
+        <columns>idusuariocrea</columns>
+        <ref-key>~.usuarios.usuarios_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="261" parent="51" name="usuario_modifica_grupo_fk">
+        <columns>idusuariomod</columns>
+        <ref-key>~.usuarios.usuarios_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="262" parent="52" name="oficina_id">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.oficinas_oficina_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="263" parent="52" name="oficina">
+        <state-number>1166</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="264" parent="52" name="estado">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="265" parent="52" name="idusuariocrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="266" parent="52" name="fechacrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="267" parent="52" name="idusuariomod">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="268" parent="52" name="fechamod">
+        <state-number>1166</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="269" parent="52" name="oficina_id_fk">
+        <object-id>33278</object-id>
+        <columns>oficina_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="270" parent="52" name="oficina_id_fk">
+        <columns>oficina_id</columns>
+        <underlying-index>oficina_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="271" parent="52" name="usuario_crea_oficina_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="272" parent="52" name="usuario_modifica_oficina_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="273" parent="53" name="pais_id">
+        <state-number>1165</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.paises_pais_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="274" parent="53" name="pais">
+        <state-number>1165</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="275" parent="53" name="region_id">
+        <state-number>1165</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="276" parent="53" name="estado">
+        <state-number>1165</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="277" parent="53" name="idusuariocrea">
+        <state-number>1165</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="278" parent="53" name="fechacrea">
+        <state-number>1165</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="279" parent="53" name="idusuariomod">
+        <state-number>1165</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="280" parent="53" name="fechamod">
+        <state-number>1165</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="281" parent="53" name="pais_id_fk">
+        <object-id>33219</object-id>
+        <columns>pais_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="282" parent="53" name="pais_id_fk">
+        <columns>pais_id</columns>
+        <underlying-index>pais_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="283" parent="53" name="paises_regiones_fk">
+        <columns>region_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="284" parent="53" name="usuario_crea_pais_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="285" parent="53" name="usuario_modifica_pais_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="286" parent="54" name="region_id">
+        <state-number>1164</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.regiones_region_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="287" parent="54" name="region">
+        <state-number>1164</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="288" parent="54" name="estado">
+        <state-number>1164</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="289" parent="54" name="idusuariocrea">
+        <state-number>1164</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="290" parent="54" name="fechacrea">
+        <state-number>1164</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="291" parent="54" name="idusuariomod">
+        <state-number>1164</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="292" parent="54" name="fechamod">
+        <state-number>1164</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="293" parent="54" name="region_id_fk">
+        <object-id>33201</object-id>
+        <columns>region_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="294" parent="54" name="region_id_fk">
+        <columns>region_id</columns>
+        <underlying-index>region_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="295" parent="54" name="usuario_crea_region_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="296" parent="54" name="usuario_modifica_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="297" parent="55" name="salon_id">
+        <state-number>1474</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.salones_salon_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="298" parent="55" name="nombre">
+        <state-number>1474</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="299" parent="55" name="oficina_id">
+        <state-number>1474</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="300" parent="55" name="estado">
+        <state-number>1474</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="301" parent="55" name="idusuariocrea">
+        <state-number>1474</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="302" parent="55" name="fechacrea">
+        <state-number>1474</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="303" parent="55" name="idusuariomod">
+        <state-number>1474</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="304" parent="55" name="fechamod">
+        <state-number>1474</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="305" parent="55" name="salones_id_fk">
+        <object-id>33674</object-id>
+        <columns>salon_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="306" parent="55" name="salones_id_fk">
+        <columns>salon_id</columns>
+        <underlying-index>salones_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="307" parent="55" name="salones_oficinas_fk">
+        <columns>oficina_id</columns>
+        <ref-key>~.oficinas.oficina_id_fk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="308" parent="55" name="usuario_crea_salones_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="309" parent="55" name="usuario_modifica_salones_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="310" parent="56" name="tipo_contacto_id">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.tipo_contacto_tipo_contacto_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="311" parent="56" name="tipo">
+        <state-number>1166</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="312" parent="56" name="estado">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="313" parent="56" name="idusuariocrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="314" parent="56" name="fechacrea">
+        <state-number>1166</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="315" parent="56" name="idusuariomod">
+        <state-number>1166</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="316" parent="56" name="fechamod">
+        <state-number>1166</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="317" parent="56" name="tipo_contacto_id_fk">
+        <object-id>33296</object-id>
+        <columns>tipo_contacto_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="318" parent="56" name="tipo_contacto_id_fk">
+        <columns>tipo_contacto_id</columns>
+        <underlying-index>tipo_contacto_id_fk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="319" parent="56" name="usuario_crea_tipo_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="320" parent="56" name="usuario_modifica_tipo_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="321" parent="57" name="usuarios_id">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;catalogos.usuarios_usuarios_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="322" parent="57" name="login">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="323" parent="57" name="nombre">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="324" parent="57" name="clave">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="325" parent="57" name="estado">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="326" parent="57" name="oficina_id">
+        <state-number>1196</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="327" parent="57" name="idusuariocrea">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="328" parent="57" name="fechacrea">
+        <state-number>1162</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="329" parent="57" name="idusuariomod">
+        <state-number>1162</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="330" parent="57" name="fechamod">
+        <state-number>1162</state-number>
+        <data-type>date</data-type>
+      </column>
+      <column id="331" parent="57" name="esabogado">
+        <state-number>1198</state-number>
+        <data-type>integer</data-type>
+        <default-expression>0</default-expression>
+      </column>
+      <column id="332" parent="57" name="cambiar">
+        <state-number>1201</state-number>
+        <data-type>integer</data-type>
+        <default-expression>0</default-expression>
+      </column>
+      <column id="333" parent="57" name="email">
+        <state-number>1266</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="334" parent="57" name="usuarios_pk">
+        <object-id>33157</object-id>
+        <columns>usuarios_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="335" parent="57" name="usuarios_pk">
+        <columns>usuarios_id</columns>
+        <underlying-index>usuarios_pk</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="336" parent="57" name="usuario_oficina_fk">
+        <columns>oficina_id</columns>
+        <ref-key>~.oficinas.oficina_id_fk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="337" parent="57" name="usuario_crea_fk">
+        <columns>idusuariocrea</columns>
+        <ref-key>usuarios_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="338" parent="57" name="usuario_modifica">
+        <columns>idusuariomod</columns>
+        <ref-key>usuarios_pk</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="339" parent="59" name="contacto_id">
+        <state-number>1224</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+        <default-expression>nextval(&apos;contactos.contacto_contacto_id_seq&apos;::regclass)</default-expression>
+      </column>
+      <column id="340" parent="59" name="tipo_contacto_id">
+        <state-number>1224</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="341" parent="59" name="nombre">
+        <state-number>1224</state-number>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="342" parent="59" name="empresa">
+        <state-number>1224</state-number>
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="343" parent="59" name="cargo">
+        <state-number>1224</state-number>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="344" parent="59" name="direccion">
+        <state-number>1224</state-number>
+        <data-type>varchar(400)</data-type>
+      </column>
+      <column id="345" parent="59" name="apartado">
+        <state-number>1224</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="346" parent="59" name="correo">
+        <state-number>1224</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="347" parent="59" name="webpage">
+        <state-number>1224</state-number>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="348" parent="59" name="telefono">
+        <state-number>1224</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="349" parent="59" name="extension">
+        <state-number>1224</state-number>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="350" parent="59" name="telefono_personal">
+        <state-number>1224</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="351" parent="59" name="fax">
+        <state-number>1224</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="352" parent="59" name="movil">
+        <state-number>1224</state-number>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="353" parent="59" name="pais_id">
+        <state-number>1224</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="354" parent="59" name="estado_id">
+        <state-number>1224</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="355" parent="59" name="region_id">
+        <state-number>1224</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="356" parent="59" name="fechanac">
+        <state-number>1224</state-number>
+        <data-type>timestamp</data-type>
+      </column>
+      <column id="357" parent="59" name="estado">
+        <state-number>1224</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="358" parent="59" name="codigo_area">
+        <state-number>1224</state-number>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="359" parent="59" name="idusuariocrea">
+        <state-number>1224</state-number>
+        <mandatory>1</mandatory>
+        <data-type>integer</data-type>
+      </column>
+      <column id="360" parent="59" name="fechacrea">
+        <state-number>1224</state-number>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="361" parent="59" name="idusuariomod">
+        <state-number>1224</state-number>
+        <data-type>integer</data-type>
+      </column>
+      <column id="362" parent="59" name="fechamod">
+        <state-number>1224</state-number>
+        <data-type>date</data-type>
+      </column>
+      <index id="363" parent="59" name="contacto_pkey">
+        <object-id>33381</object-id>
+        <columns>contacto_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="364" parent="59" name="contacto_pkey">
+        <columns>contacto_id</columns>
+        <underlying-index>contacto_pkey</underlying-index>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="365" parent="59" name="contacto_tipo_contacto_fk">
+        <columns>tipo_contacto_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="366" parent="59" name="contacto_paises">
+        <columns>pais_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="367" parent="59" name="contacto_estado_dpto_fk">
+        <columns>estado_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="368" parent="59" name="contacto_region_fk">
+        <columns>region_id</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="369" parent="59" name="contacto_usuario_crea_fk">
+        <columns>idusuariocrea</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="370" parent="59" name="contacto_usuario_modifica_fk">
+        <columns>idusuariomod</columns>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
